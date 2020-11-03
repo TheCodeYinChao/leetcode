@@ -20,13 +20,14 @@ public class Solution {
         int[] findArr = new int[2];
 
         findArr = mapFind(arr, target);
+//        findArr = find(arr, target);
 
         System.out.println(findArr[0]);
         System.out.println(findArr[1]);
     }
 
     /**
-     * 来源力扣题解
+     * 方法二：哈希解法（来源力扣）
      *
      * @param nums
      * @param target
@@ -36,34 +37,40 @@ public class Solution {
         HashMap<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i]))
-                return new int[]{map.get(nums[i]), i};
+            if (map.containsKey(nums[i])) // 3-false，2-false，4-true
+                return new int[]{map.get(nums[i]), i}; // 1-2
 
-            map.put(target - nums[i], i);
+            map.put(target - nums[i], i); // 3-0，4-1
         }
         return null;
     }
 
     /**
-     * 循环遍历
+     * 方法一：双重for循环
      *
      * @param arr
-     * @param data
-     * @param index
+     * @param target
      * @return
      */
-    public static int find(int[] arr, int data, int index) {
+    public static int[] find(int[] arr, int target) {
+        int[] indexs = new int[2];
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == data && index != i) {
-                return i;
+            indexs[0] = i;
+            int num = arr[i];
+            int partnerNum = target - num;
+            for (int k = 0; k < arr.length; k++) {
+                if (arr[k] == partnerNum && k != i) {
+                    indexs[1] = k;
+                    return indexs;
+                }
             }
         }
 
-        return -1;
+        return null;
     }
 
     /**
-     * 二分查找（有序数组）
+     * 双重for循环，内层采用二分查找（有序数组）
      *
      * @param arr
      * @param left
