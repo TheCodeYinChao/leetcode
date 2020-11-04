@@ -15,7 +15,9 @@
 
 ---
 
-# 基础数据结构
+# 基础数据结构|JAVA 常见算法
+
+**所在包：cn.leetcode.basestructure**
 
 数组 
 
@@ -33,17 +35,21 @@
 
 hash表
 
-# JAVA 常见算法及结构
 
-Map list linkedlist skiplist ...
 
 # JAVA常用数据结构源码阅读
 
-map skiplist arraylist
+
+
+**所在包 ： cn.leetcode.sourceanaly** 
+
+
 
 # 面试刷题精讲
 
-力扣，极客
+
+
+**所在包：cn.leetcode.facetoface**
 
 
 
