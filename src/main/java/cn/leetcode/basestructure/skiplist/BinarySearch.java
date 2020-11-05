@@ -1,4 +1,4 @@
-package cn.leetcode.skiplist;
+package cn.leetcode.basestructure.skiplist;
 
 import org.junit.Test;
 
