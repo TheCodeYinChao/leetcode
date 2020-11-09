@@ -48,6 +48,87 @@ public class TwoNumAdd {
         return first;
     }
 
+    public static ListNode addNew(ListNode l1, ListNode l2) {
+
+        ListNode firest = new ListNode(0, null);//首届节点
+        ListNode returnNode = null;//中转节点
+
+        boolean bl = true;
+        boolean b = false;
+        for (; ; ) {
+            if (l1 != null && l2 != null) {
+
+                int data = l1.val + l2.val;//最终值
+
+                if (b) {
+                    data += 1;
+                    b = false;
+                }
+                if (data > 9) {
+                    data %= 10;
+                    b = true;
+                }
+                if (bl) { // 首次添加
+                    firest.val = data;
+                    returnNode = firest;
+                    bl = false;
+                } else {
+                    ListNode s = new ListNode(data, null);
+                    returnNode.next = s;
+                    returnNode = s;
+                }
+
+                l1 = l1.next;
+                l2 = l2.next;
+
+            } else if (l1 != null && l2 == null) {
+
+                int data = l1.val;
+
+                if (b) {
+                    data += 1;
+                    b = data > 9 ? true : false;
+                    if (data > 9) {
+                        data %= 10;
+                    }
+                }
+
+                ListNode s = new ListNode(data, null);
+                returnNode.next = s;
+                returnNode = s;
+
+                l1 = l1.next;
+
+            } else if (l1 == null && l2 != null) {
+                int data = l2.val;
+                if (b) {
+                    data += 1;
+                    if (data > 9) {
+                        data %= 10;
+                        b = true;
+                    } else {
+                        b = false;
+                    }
+                }
+
+                ListNode s = new ListNode(data, null);
+                returnNode.next = s;
+                returnNode = s;
+
+                l2 = l2.next;
+            } else {
+                if (b) {
+                    ListNode s = new ListNode(1, null);
+                    returnNode.next = s;
+                }
+                return firest;
+            }
+
+
+        }
+
+    }
+
     /**
      * 无法处理十位数相加
      *
@@ -145,23 +226,26 @@ public class TwoNumAdd {
 //        ListNode node02 = put(9999999991);
 //        ListNode node02 = put(9999999991);
 
-        ListNode node01 = new ListNode(9, null);
+        ListNode node01 = new ListNode(1, null);
         ListNode node02 = new ListNode(9, null);
+//        node01.next = new ListNode(9, null);
         node02.next = new ListNode(9, null);
-        node02.next.next = new ListNode(9, null);
-        node02.next.next.next = new ListNode(9, null);
-        node02.next.next.next.next = new ListNode(9, null);
-        node02.next.next.next.next.next = new ListNode(9, null);
-        node02.next.next.next.next.next.next = new ListNode(9, null);
-        node02.next.next.next.next.next.next.next = new ListNode(9, null);
-        node02.next.next.next.next.next.next.next.next = new ListNode(1, null);
-        node02.next.next.next.next.next.next.next.next.next = new ListNode(1, null);
+//        node01.next.next = new ListNode(9, null);
+        node02.next.next = new ListNode(1, null);
+//        node02.next.next.next = new ListNode(9, null);
+//        node02.next.next.next.next = new ListNode(9, null);
+//        node02.next.next.next.next.next = new ListNode(9, null);
+//        node02.next.next.next.next.next.next = new ListNode(9, null);
+//        node02.next.next.next.next.next.next.next = new ListNode(9, null);
+//        node02.next.next.next.next.next.next.next.next = new ListNode(9, null);
+////        node02.next.next.next.next.next.next.next.next.next = new ListNode(1, null);
 
 
         System.out.println(node01);
         System.out.println(node02);
 
-        System.out.println(addTwoNumbers(node01, node02));
+//        System.out.println(addTwoNumbers(node01, node02));
+        System.out.println(addNew(node01, node02));
     }
 }
 
