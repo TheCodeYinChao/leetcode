@@ -3,9 +3,16 @@ package cn.leetcode.basestructure.skiplist;
 import java.util.Random;
 
 /**
- * dsc: SkipList 跳表结构 有待研究
+ * dsc: SkipList 跳表结构
  * date: 2020/11/6 14:24
  * author: zyc
+ *
+ * 拓展： redis
+ *  有序集合
+ *  ZADD price 8.5 apple 5.0 banana 6.0 cherry
+ *    存储-> 元素数量小于128个&&所有member的长度都小于64字节
+ *              ->true -> ziplist
+ *              ->false -> skiplist+字典表
  */
 public class SkipList<E extends Comparable<? super E>> {
 
