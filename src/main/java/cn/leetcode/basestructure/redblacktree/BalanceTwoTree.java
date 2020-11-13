@@ -12,5 +12,5 @@ package cn.leetcode.basestructure.redblacktree;
  */
 public class BalanceTwoTree {
 
-
 }
+
