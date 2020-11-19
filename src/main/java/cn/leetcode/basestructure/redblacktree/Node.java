@@ -6,13 +6,13 @@ package cn.leetcode.basestructure.redblacktree;
  * author: zyc
  */
 public class Node {
-//    Node parent;
+    Node parent;
     Node leftChild;
     Node rightChild;
     int val;
     public Node(Node parent, Node leftChild, Node rightChild,int val) {
         super();
-//        this.parent = parent;
+        this.parent = parent;
         this.leftChild = leftChild;
         this.rightChild = rightChild;
         this.val = val;
