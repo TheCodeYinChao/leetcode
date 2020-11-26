@@ -3,4 +3,4 @@
  * date: 2020/11/10 16:38
  * author: zyc
  */
-package cn.leetcode.basestructure.redblacktree;
+package cn.leetcode.basestructure.balancetree;
