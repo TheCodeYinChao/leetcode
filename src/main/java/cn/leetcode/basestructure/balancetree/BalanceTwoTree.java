@@ -1,4 +1,4 @@
-package cn.leetcode.basestructure.redblacktree;
+package cn.leetcode.basestructure.balancetree;
 
 import java.util.Stack;
 
