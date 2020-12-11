@@ -28,6 +28,16 @@ package cn.leetcode.difficulty;
  * 输入：nums1 = [2], nums2 = []
  * 输出：2.00000
  * <p>
+ *
+ * 提示：
+ *
+ * nums1.length == m
+ * nums2.length == n
+ * 0 <= m <= 1000
+ * 0 <= n <= 1000
+ * 1 <= m + n <= 2000
+ * -106 <= nums1[i], nums2[i] <= 106
+ *
  * 来源：力扣（LeetCode）
  *
  * @Author xiaoya.wen@raykite.com
@@ -36,77 +46,46 @@ package cn.leetcode.difficulty;
 public class FindTwoArray {
     public static void main(String[] args) {
 
-        System.out.println(Integer.parseInt(null));
-        int sum = 0;
-        int n = 10;
-        sum = (1 + n) * n / 2;
+        int[] nums1 = {};
+
+        int[] nums2 = {3,4};
+
+        System.out.println(merge(nums1,nums2));
     }
 
-    public static long fun1(long n){
-        int result = 1;
+    public static double merge(int[] nums1, int[] nums2) {
+        int m = nums1.length;
+        int n = nums2.length;
 
-        for (int i = 1; i < n; i++) {
-            result*=i;
-        }
-
-        return result;
-    }
-
-
-
-    public static void merge(int[] arr1, int[] arr2) {
-        int mid = (arr1.length + arr2.length) / 2;
-        int mid1 = mid;
-        if ((arr1.length + arr2.length) % 2 > 0) {
-            mid1 += 1;
-        }
-
-
-    }
-
-    public static void separete(int[] arr, int left, int right, int[] temp) {
-        if (left < right) {
-            int mid = (left + right) / 2;
-
-            separete(arr, left, mid, temp);
-            separete(arr, mid + 1, right, temp);
-            merge(arr, left, mid, right, temp);
-        }
-    }
-
-    private static void merge(int[] arr, int left, int mid, int right, int[] temp) {
-        int i = left;
-        int j = mid + 1;
-        int index = 0;
-
-        while (i <= mid && j <= right) {
-            if (arr[i] <= arr[j]) {
-                temp[index] = arr[i];
-                i++;
-                index++;
+        int mind = (m + n) / 2 + 1;
+        int[] arr = new int[mind];
+        int m1 = 0;
+        int n1 = 0;
+        for (int i = 0; i < mind; i++) {
+            if (m <= 0) {
+                arr[i] = nums2[n1];
+                n--;
+                n1++;
+            } else if ( n <= 0) {
+                arr[i] = nums1[m1];
+                m--;
+                m1++;
+            } else if (nums1[m1] <= nums2[n1]) {
+                arr[i] = nums1[m1];
+                m--;
+                m1++;
             } else {
-                temp[index] = arr[j];
-                j++;
-                index++;
+                arr[i] = nums2[n1];
+                n--;
+                n1++;
             }
         }
 
-        while (i <= mid) {
-            temp[index] = arr[j];
-            j++;
-            index++;
+        if ((m + n) % 2 == 0) {
+            return (arr[mind - 1] + arr[mind - 2]) / 2d;
+        } else {
+            return arr[mind - 1];
         }
 
-        index = 0;
-        int tempLeft = left;
-        while (tempLeft <= right) {
-            arr[tempLeft] = temp[index];
-            index++;
-            tempLeft++;
-        }
     }
-}
-
-class Node {
-
 }
