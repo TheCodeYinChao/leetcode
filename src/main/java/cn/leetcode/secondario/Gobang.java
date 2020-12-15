@@ -65,9 +65,7 @@ public class Gobang {
 
                     count++;
                 }
-
             }
-
         }
 
         sparseArray = new int[count + 1][3];
@@ -91,6 +89,12 @@ public class Gobang {
         return sparseArray;
     }
 
+    /**
+     * 续盘 将稀疏数组转为棋盘
+     *
+     * @param sparseArray
+     * @return
+     */
     public int[][] sparseArrayChangeGobang(int[][] sparseArray){
         int row = sparseArray[0][0];
         int col = sparseArray[0][1];
