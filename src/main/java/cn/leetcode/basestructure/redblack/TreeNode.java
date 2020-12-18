@@ -44,17 +44,18 @@ public class TreeNode {
             for (TreeNode p = root;;) {//p指向遍历中的当前节点 x待插入节点
                 int dir = 0, ph;
                 if ((ph = p.val) > val)//这里通过hash来确定树的左边还是右边
-                    dir = -1;
+                    dir = -1;//左边
                 else if (ph < val)
-                    dir = 1;
+                    dir = 1;//右边
 
                 TreeNode xp = p;
-                if ((p = (dir <= 0) ? p.left : p.right) == null) {
+                if ((p = (dir <= 0) ? p.left : p.right) == null) {//这帮子傻子，老这样写
                     x.parent = xp;
                     if (dir <= 0)
                         xp.left = x;
                     else
                         xp.right = x;
+                    //确定插入的位置
                     root = balanceInsertion(root, x);
                     break;
                 }
@@ -68,12 +69,10 @@ public class TreeNode {
      *  左旋
      * @param root
      * @param p
-     * @param <K>
-     * @param <V>
      * @return
      */
 
-        static <K,V> TreeNode rotateLeft(TreeNode root,
+        static  TreeNode rotateLeft(TreeNode root,
                                                       TreeNode p) {
             TreeNode r, pp, rl;
             if (p != null && (r = p.right) != null) {
@@ -94,12 +93,9 @@ public class TreeNode {
      *  右旋
      * @param root
      * @param p
-     * @param <K>
-     * @param <V>
      * @return
      */
-        static <K,V> TreeNode rotateRight(TreeNode root,
-                                                       TreeNode p) {
+        static TreeNode rotateRight(TreeNode root,TreeNode p) {
             TreeNode l, pp, lr;
             if (p != null && (l = p.left) != null) {
                 if ((lr = p.left = l.right) != null)
@@ -116,8 +112,13 @@ public class TreeNode {
             return root;
         }
 
-        static <K,V> TreeNode balanceInsertion(TreeNode root,//https://www.cnblogs.com/mfrank/p/9227097.html 博客
-                                                            TreeNode x) {//x新增节点
+    /**
+     * 调整平衡
+     * @param root
+     * @param x
+     * @return
+     */
+        static TreeNode balanceInsertion(TreeNode root,TreeNode x) {//x新增节点
             x.red = true;//新增全设置为red
             for (TreeNode xp, xpp, xppl, xppr;;) {
                 if ((xp = x.parent) == null) {
@@ -171,8 +172,7 @@ public class TreeNode {
             }
         }
 
-        static <K,V> TreeNode balanceDeletion(TreeNode root,
-                                                           TreeNode x) {
+        static  TreeNode balanceDeletion(TreeNode root,TreeNode x) {
             for (TreeNode xp, xpl, xpr;;)  {
                 if (x == null || x == root)
                     return root;
