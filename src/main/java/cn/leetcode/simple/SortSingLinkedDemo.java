@@ -1,4 +1,4 @@
-package cn.leetcode.facetoface;
+package cn.leetcode.simple;
 
 /**
  * 有序单向链表demo

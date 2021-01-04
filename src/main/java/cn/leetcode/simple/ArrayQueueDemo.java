@@ -1,4 +1,4 @@
-package cn.leetcode.facetoface;
+package cn.leetcode.simple;
 
 /**
  * 数组模拟队列

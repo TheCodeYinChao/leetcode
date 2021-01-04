@@ -1,4 +1,4 @@
-package cn.leetcode.secondario;
+package cn.leetcode.secondary;
 
 /**
  * 两数相加：

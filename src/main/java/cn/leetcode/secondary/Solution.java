@@ -1,4 +1,4 @@
-package cn.leetcode.facetoface;
+package cn.leetcode.secondary;
 
 import java.util.HashMap;
 

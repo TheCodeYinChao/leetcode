@@ -3,4 +3,4 @@
  * date: 2020/11/4 11:24
  * author: zyc
  */
-package cn.leetcode.sourceanaly;
+package cn.leetcode.simple;

@@ -1,4 +1,4 @@
-package cn.leetcode.sourceanaly;
+package cn.leetcode.difficulty;
 
 /**
  * 八皇后问题（回溯算法）

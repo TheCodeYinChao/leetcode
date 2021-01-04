@@ -1,4 +1,4 @@
-package cn.leetcode.secondario;
+package cn.leetcode.simple;
 
 /**
  * 五子棋的存盘和续盘
