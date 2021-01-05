@@ -69,21 +69,20 @@ public class LRUCacheNotJDK {
     }
 
     public int get(int key) {
-        if (!map.containsKey(key)) {
-            return -1;
-        }
-
         Node<Integer, Integer> node = map.get(key);
-        doubleLinkedList.removeNode(node);
-        doubleLinkedList.addHead(node);
+        if (node != null) {
+            doubleLinkedList.removeNode(node);
+            doubleLinkedList.addHead(node);
+            return node.value;
+        }
+        return -1;
 
-        return node.value;
     }
 
     public void put(int key, int value) {
 
-        if (map.containsKey(key)){
-            Node<Integer, Integer> node = map.get(key);
+        Node<Integer, Integer> node = map.get(key);
+        if (node != null) {
             node.value = value;
             map.put(key,node);
             doubleLinkedList.removeNode(node);
@@ -99,9 +98,6 @@ public class LRUCacheNotJDK {
             map.put(key,newNode);
             doubleLinkedList.addHead(newNode);
         }
-    }
-
-    public static void main(String[] args) {
     }
 
 }

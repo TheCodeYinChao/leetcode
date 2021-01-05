@@ -8,7 +8,7 @@ import java.util.Map;
  * 该算法赋予每个页面一个访问字段，用来记录一个页面自上次被访问以来所经历的时间t，当须淘汰一个页面时，选择现有页面中其t值最大的，即最近最少使用的页面予以淘汰
  * <p>
  * 分析：
- * LRU算法的核心是哈希链表 （哈希表 + 双向链表  查找、插入、删除都快）
+ * LRU算法的核心是哈希链表 （哈希表 + 双向链表  查找、插入、删除 O(1) 注：这里的O(1)是根据均摊分析来求的）
  * JDK中对LinkedHashMap的说明就是 非常适合用于构建LRU Caches
  * <p>
  * 场景：
@@ -67,11 +67,11 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> { // 依赖JDK
         lruCache.put(4,4);
 
         System.out.println(lruCache.keySet());
-        lruCache.put(3,3);
+        lruCache.put(3, 6);
         System.out.println(lruCache.keySet());
 
         System.out.println(lruCache.get(1));
-        System.out.println(lruCache.get(2));
+        System.out.println(lruCache.get(3));
         System.out.println(lruCache.keySet());
     }
 }
