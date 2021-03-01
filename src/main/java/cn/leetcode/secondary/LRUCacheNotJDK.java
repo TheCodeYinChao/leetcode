@@ -3,6 +3,9 @@ package cn.leetcode.secondary;
 import java.util.HashMap;
 import java.util.Map;
 
+//import java.util.LinkedHashMap;
+//import java.util.Map.Entry;
+
 /**
  * 不采用LinkedHashMap
  *
@@ -10,6 +13,24 @@ import java.util.Map;
  * @Date 2021/01/04  17:45
  **/
 public class LRUCacheNotJDK {
+
+//    private int capacity;   // 容量
+//    private LinkedHashMap<Integer,Integer> map;
+//
+//    public LRUCacheNotJDK(int capacity) {
+//        /**
+//         * accessOrder      the ordering mode
+//         *  <tt>true</tt> for access-order, 通过访问顺序
+//         *  <tt>false</tt> for insertion-order 通过插入顺序
+//         */
+//        this.map = new LinkedHashMap(capacity,0.75F,true){
+//
+//            protected boolean removeEldestEntry(Entry eldest) {
+//                return super.size() > capacity;
+//            }
+//        };
+//        this.capacity = capacity;
+//    }
 
     class Node<K, V> {
         K key;
